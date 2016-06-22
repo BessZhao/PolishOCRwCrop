@@ -259,6 +259,8 @@ debug/moc_mainwindow.cpp: promptdialog.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QMouseEvent \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QImage \
 		cropdialog.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QDesktopWidget \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/QProcess \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qprocess.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QWidget \
@@ -447,6 +449,8 @@ debug/moc_promptdialog.cpp: C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QDia
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QMouseEvent \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QImage \
 		cropdialog.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QDesktopWidget \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
 		promptdialog.h
 	C:\Qt\Qt5.5.0\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/Qt5.5.0/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/ting/Documents/FinalOCR/Interface_2/Interface_2 -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtQuick -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWebKitWidgets -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWebKit -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtANGLE -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtQml -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtNetwork -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtScript -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore promptdialog.h -o debug\moc_promptdialog.cpp
 
@@ -570,6 +574,8 @@ debug/moc_cropdialog.cpp: C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QDialo
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qtextoption.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qpen.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QMouseEvent \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QDesktopWidget \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
 		cropdialog.h
 	C:\Qt\Qt5.5.0\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/Qt5.5.0/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/ting/Documents/FinalOCR/Interface_2/Interface_2 -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtQuick -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWebKitWidgets -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWebKit -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtANGLE -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtQml -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtNetwork -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtScript -IC:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore cropdialog.h -o debug\moc_cropdialog.cpp
 
@@ -727,6 +733,8 @@ debug/main.o: main.cpp mainwindow.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QMouseEvent \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QImage \
 		cropdialog.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QDesktopWidget \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/QProcess \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qprocess.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QWidget \
@@ -790,7 +798,6 @@ debug/main.o: main.cpp mainwindow.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qapplication.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qguiapplication.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o main.cpp
@@ -923,6 +930,8 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QMouseEvent \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QImage \
 		cropdialog.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QDesktopWidget \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/QProcess \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qprocess.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QWidget \
@@ -990,7 +999,6 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qapplication.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qguiapplication.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qinputmethod.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
@@ -1148,7 +1156,37 @@ debug/promptdialog.o: promptdialog.cpp promptdialog.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QMouseEvent \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QImage \
 		cropdialog.h \
-		ui_promptdialog.h
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QDesktopWidget \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
+		ui_promptdialog.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/QVariant \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QAction \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qaction.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qapplication.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qeventloop.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qguiapplication.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qinputmethod.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QHeaderView \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qstyle.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qrubberband.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\promptdialog.o promptdialog.cpp
 
 debug/cropdialog.o: cropdialog.cpp cropdialog.h \
@@ -1272,7 +1310,37 @@ debug/cropdialog.o: cropdialog.cpp cropdialog.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qtextoption.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qpen.h \
 		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/QMouseEvent \
-		ui_cropdialog.h
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QDesktopWidget \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
+		ui_cropdialog.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/QVariant \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QAction \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qaction.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QApplication \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qapplication.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qeventloop.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qguiapplication.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qinputmethod.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/QHeaderView \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qslider.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qstyle.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/Qt5.5.0/5.5/mingw492_32/include/QtWidgets/qrubberband.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\cropdialog.o cropdialog.cpp
 
 debug/qrc_image.o: debug/qrc_image.cpp 

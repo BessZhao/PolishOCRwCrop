@@ -9,7 +9,11 @@ CropDialog::CropDialog(QWidget *parent) :
 
     QHBoxLayout* layout = new QHBoxLayout;
     layout->addWidget(imageLabel);
+
     this->setLayout(layout);
+
+
+    //this->resize(QDesktopWidget().availableGeometry(this).size() * 0.7);
 }
 
 CropDialog::~CropDialog()
@@ -20,18 +24,22 @@ CropDialog::~CropDialog()
 void CropDialog::getImage(QImage *myImage)
 {
     wholeImage = myImage;
+    wholeImage->scaled(350,400,Qt::KeepAspectRatio);
     imageLabel->setPixmap(QPixmap::fromImage(*wholeImage));
     imageLabel->setAlignment(Qt::AlignLeft);
-    //imageLabel->setScaledContents(true);
+
+    imageLabel->setScaledContents(true);
+
 }
 
 void  CropDialog::mousePressEvent(QMouseEvent* event){
     //Mouse is pressed for the first time
     mousePressed = true;
-
+    x = imageLabel->geometry().topLeft().x(); //std::cout<<"x: "<<x<<std::endl;
+    y = imageLabel->geometry().topLeft().y(); //std::cout<<"y: "<<y<<std::endl;
     //set the initial line points, both are same
-    myRect.setTopLeft(event->pos()); //std::cout<<"pos: "<<event->x()<<","<<event->y()<<std::endl;
-    myRect.setBottomRight(event->pos());
+    myRect.setTopLeft(QPoint(event->x()-x,event->y()-y)); //std::cout<<"pos: "<<event->x()<<","<<event->y()<<std::endl;
+    myRect.setBottomRight(QPoint(event->x()-x,event->y()-y));
 
 }
 
@@ -40,7 +48,7 @@ void  CropDialog::mouseMoveEvent(QMouseEvent* event){
     //As mouse is moving set the second point again and again
     // and update continuously
     if(event->type() == QEvent::MouseMove){
-            myRect.setBottomRight(event->pos());//std::cout<<"pos: "<<event->x()<<","<<event->y()<<std::endl;//imageLabel->setPixmap(QPixmap::fromImage(*wholeImage));
+            myRect.setBottomRight(QPoint(event->x()-x,event->y()-y));//std::cout<<"pos: "<<event->x()<<","<<event->y()<<std::endl;//imageLabel->setPixmap(QPixmap::fromImage(*wholeImage));
     }
 
     //it calls the paintEven() function continuously
@@ -58,9 +66,9 @@ void  CropDialog::mouseReleaseEvent(QMouseEvent *event){
     croppedImage=new QImage(wholeImage->copy(myRect));
 
     //test
-    QLabel* show1=new QLabel ;
+   /* QLabel* show1=new QLabel ;
     show1->setPixmap(QPixmap::fromImage(*croppedImage));
-    show1->show();
+    show1->show();*/
 
     //repaint();
     //imageLabel->setPixmap(QPixmap::fromImage(*wholeImage));
