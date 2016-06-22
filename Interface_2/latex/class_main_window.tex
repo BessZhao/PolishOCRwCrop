@@ -1,0 +1,83 @@
+\section{Main\+Window Class Reference}
+\label{class_main_window}\index{Main\+Window@{Main\+Window}}
+Inheritance diagram for Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf choose\+File} ()\label{class_main_window_ad9414920d90d79a159c013deb5adbfbe}
+
+\begin{DoxyCompactList}\small\item\em Function that chooses a file from the user\textquotesingle{}s computer drive, opens it, and sets a transparent rectangle over the image to indicate the area to be cropped. \end{DoxyCompactList}\item 
+void {\bf recognize} ()\label{class_main_window_a530cad5bd7fbc4fdc99f1e294ce2502f}
+
+\begin{DoxyCompactList}\small\item\em Function that sends the multipart message as a request to the A\+PI server. Shows the image being O\+CR\textquotesingle{}d in the left-\/hand side of the interface. \end{DoxyCompactList}\item 
+void {\bf network\+Data} ()\label{class_main_window_aa292f75ae4e066c56b3ba9e46221b113}
+
+\begin{DoxyCompactList}\small\item\em Function that retrieves network reply from the A\+PI, formats the response and inserts it in Qlabel object display\+Text to show the results on the interface. \end{DoxyCompactList}\item 
+void {\bfseries save\+To\+File} ()\label{class_main_window_a80381181e476064c086666abb2cfa2ce}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Main\+Window} (Q\+Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \doxyref{Main\+Window}{p.}{class_main_window} that displays the interface for the program. \end{DoxyCompactList}\item 
+{\bf $\sim$\+Main\+Window} ()\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}
+
+\begin{DoxyCompactList}\small\item\em \doxyref{Main\+Window}{p.}{class_main_window} Destructor. \end{DoxyCompactList}\item 
+Q\+Image $\ast$ {\bf grey\+Scale} (Q\+Image $\ast$origin)
+\begin{DoxyCompactList}\small\item\em \doxyref{Main\+Window\+::grey\+Scale}{p.}{class_main_window_af0806083aaf818fbf6a18b544059bb7f} -\/ convert any image uploaded by the user into a greyscaled image. \end{DoxyCompactList}\item 
+void {\bfseries parse\+Api\+Response} ()\label{class_main_window_a4ec42e54c235328c815da9c957bf4db9}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection[{Main\+Window(\+Q\+Widget $\ast$parent=0)}]{\setlength{\rightskip}{0pt plus 5cm}Main\+Window\+::\+Main\+Window (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}
+
+
+\doxyref{Main\+Window}{p.}{class_main_window} that displays the interface for the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Main\+Window@{Main\+Window}!grey\+Scale@{grey\+Scale}}
+\index{grey\+Scale@{grey\+Scale}!Main\+Window@{Main\+Window}}
+\subsubsection[{grey\+Scale(\+Q\+Image $\ast$origin)}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Image $\ast$ Main\+Window\+::grey\+Scale (
+\begin{DoxyParamCaption}
+\item[{Q\+Image $\ast$}]{origin}
+\end{DoxyParamCaption}
+)}\label{class_main_window_af0806083aaf818fbf6a18b544059bb7f}
+
+
+\doxyref{Main\+Window\+::grey\+Scale}{p.}{class_main_window_af0806083aaf818fbf6a18b544059bb7f} -\/ convert any image uploaded by the user into a greyscaled image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & original Q\+Image uploaded by the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Image pointer that points to the greyscaled image 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+mainwindow.\+h\item 
+mainwindow.\+cpp\end{DoxyCompactItemize}

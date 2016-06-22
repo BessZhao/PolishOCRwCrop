@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\crop.o
+./debug\prompt.o
+./debug\dialog.o
+./debug\qrc_image.o
+./debug\moc_mainwindow.o
+./debug\moc_crop.o
+./debug\moc_prompt.o
+./debug\moc_dialog.o
+);

@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\crop.o
+./release\prompt.o
+./release\dialog.o
+./release\qrc_image.o
+./release\moc_mainwindow.o
+./release\moc_crop.o
+./release\moc_prompt.o
+./release\moc_dialog.o
+);
