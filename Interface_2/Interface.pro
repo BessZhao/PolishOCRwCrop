@@ -17,11 +17,13 @@ CONFIG += debug_and_release
 SOURCES += main.cpp\
         mainwindow.cpp \
     promptdialog.cpp \
-    cropdialog.cpp
+    cropdialog.cpp \
+    flowlayout.cpp
 
 HEADERS  += mainwindow.h \
     promptdialog.h \
-    cropdialog.h
+    cropdialog.h \
+    flowlayout.h
 
 FORMS    += mainwindow.ui \
     promptdialog.ui \

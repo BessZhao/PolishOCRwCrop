@@ -9,6 +9,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QDesktopWidget>
+#include <QToolBar>
 
 namespace Ui {
 class CropDialog;
@@ -38,6 +39,7 @@ private:
     QPainter painter;
     QImage* croppedImage;
     int x,y;
+
 };
 
 #endif // CROPDIALOG_H

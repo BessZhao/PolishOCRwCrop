@@ -6,8 +6,8 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QObject>
-#include <QIcon>
+#include <QBuffer>
+#include "flowlayout.h"
 
 /**
  * @brief MainWindow that displays the interface for the program.
@@ -20,7 +20,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowTitle("MilaOCRv1.0.0");
 
-    // create all layouts
+    //****ADDED 6-22
+    this->setBaseSize(900,500); //set base size of interface but window can be resized
+
+    //create all layouts
     QWidget* main_window=new QWidget;//create a central widget
     QVBoxLayout* vlayout1 = new QVBoxLayout;//main layout for application
     QHBoxLayout* hlayout1 = new QHBoxLayout;//create top horizontal layout, for buttons
@@ -28,12 +31,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QHBoxLayout* hlayout3 = new QHBoxLayout;//bottom horiz layout, export button
     QVBoxLayout* vlayout2 = new QVBoxLayout;//layout for file and ocr buttons
 
-    QLabel* header = new QLabel("<h3>MilaOCR</h3>");
+    QLabel* header = new QLabel;
     QPixmap pic(":/Image/MilaOCR.png");
-    QPixmap import_pic(":/Image/importfile.png");
-    QPixmap export_pic(":/Image/export.png");
-    QIcon export_icon(export_pic);
-    QIcon import_icon(import_pic);
+    //QPixmap import_pic(":/Image/importfile.png");
+    //QPixmap export_pic(":/Image/export.png");
+    //QIcon export_icon(export_pic);
+    //QIcon import_icon(import_pic);
     header->setPixmap(pic);
     header->setAlignment(Qt::AlignCenter);
     QPushButton* openFileButton = new QPushButton;//open file button
@@ -55,24 +58,51 @@ MainWindow::MainWindow(QWidget *parent) :
     //set tooltip
     exportToFile->setToolTip("Save the results to a text file");
 
-    //labels to hold image and text
-    displayImage->setStyleSheet("border: 1.4px solid black");
+    //****ADDED 6-22
+    textScrollArea = new QScrollArea;
+    imageScrollArea = new QScrollArea;
+    QWidget* wrap1 = new QWidget(textScrollArea);
+    QWidget* wrap2 = new QWidget(imageScrollArea);
+
+    FlowLayout* flow1 = new FlowLayout(wrap1);
+    FlowLayout* flow2 = new FlowLayout(wrap2);
+
+    //Qlabels that hold OCR image and OCR'd text
+    displayText = new QLabel(wrap1);
+    displayImage = new QLabel(wrap2);
     displayImage->setFixedSize(350,400);
-    displayImage->setScaledContents(true);
-    displayText->setStyleSheet("border: 1.4px solid black");
-    displayText->setFixedSize(350,400);
-    displayText->setScaledContents(true);
+
+    flow2->addWidget(displayImage);
+    flow1->addWidget(displayText);
+    //set up scroll area for the OCR'd text
+    wrap1->setLayout(flow1);
+    wrap2->setLayout(flow2);
+    textScrollArea->setWidget(wrap1);
+    imageScrollArea->setWidget(wrap2);
+    textScrollArea->setWidgetResizable(true);
+    imageScrollArea->setWidgetResizable(true);
+    //****end ADDED
+
+    //labels to hold image and text
+    //displayImage->setStyleSheet("border: 1.4px solid black");
+    //displayImage->setFixedSize(350,400);
+    //displayImage->setScaledContents(true);
+    //displayText->setStyleSheet("border: 1.4px solid black");
+    //displayText->setFixedSize(350,400);
+    //displayText->setScaledContents(true);
 
     QObject::connect(openFileButton,SIGNAL(clicked()),this,SLOT(chooseFile()));
     QObject::connect(performOCR,SIGNAL(clicked()),this,SLOT(recognize()));
     QObject::connect(exportToFile,SIGNAL(clicked()),this,SLOT(saveToFile()));
+
     //add everything to layouts
     vlayout2->addWidget(openFileButton);
     vlayout2->addWidget(performOCR);
-    hlayout2->addWidget(displayImage);
+    //hlayout2->addWidget(displayImage);
+    hlayout2->addWidget(imageScrollArea);//****ADDED
     hlayout2->addLayout(vlayout2);
-    hlayout2->addWidget(displayText);
-
+    //hlayout2->addWidget(displayText);
+    hlayout2->addWidget(textScrollArea);//****ADDED
     hlayout3->addWidget(exportToFile);
     hlayout3->setAlignment(Qt::AlignRight);
 
@@ -82,6 +112,9 @@ MainWindow::MainWindow(QWidget *parent) :
     vlayout1->addLayout(hlayout3);
     main_window->setLayout(vlayout1);//add layout to widget
     this->setCentralWidget(main_window);//set central widget
+
+
+
 }
 /**
  * @brief MainWindow Destructor
@@ -140,8 +173,7 @@ void MainWindow::saveToFile()
  */
 void MainWindow::chooseFile()
 {
-    fileName = QFileDialog::getOpenFileName(this,tr("open file"),"C:/",tr("Image(*.gif*)"));//open a dialog
-
+    fileName = QFileDialog::getOpenFileName(this,tr("open file"),QDir::homePath(), tr("Image Files (*.png *.jpg *.gif);;PDF Files (*.PDF)"));
     if(!fileName.isNull())//if a file is selected, do something
     {
            originalImage->load(fileName);
@@ -160,12 +192,16 @@ void MainWindow::chooseFile()
                greyScaleImage = askForCrop.resultImage;
            }
 
-           greyScaleImage->scaled(350,400,Qt::KeepAspectRatio);
-           displayImage->setPixmap(QPixmap::fromImage(*greyScaleImage));
+
+           displayImage->setPixmap(QPixmap::fromImage(*greyScaleImage).scaled(displayImage->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+           displayImage->hasScaledContents();
+
+
+           //greyScaleImage->scaled(350,400,Qt::KeepAspectRatio);
+           //displayImage->setPixmap(QPixmap::fromImage(*greyScaleImage));
+
+
            /*displayImage->setScaledContents(true);
-
-
-
 
            greyScaleImage = imageToBeCropped.getCroppedImage();
            greyScaleImage->scaled(350,400,Qt::KeepAspectRatio);
@@ -175,8 +211,6 @@ void MainWindow::chooseFile()
     else{
         std::cout<<"fail to open file"<<std::endl;
     }
-
-
 
 }
 
@@ -202,17 +236,19 @@ void MainWindow::recognize(){
 
     QHttpPart imagePart;
     imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/gif"));
-    imagePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\"./Polish_test2.gif\""));
+    imagePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\"*.gif\""));
 
-    QFile* file = new QFile(fileName);
-    //QFile* file = new QFile("/users/hiroka/Documents/QT/API_TEST/Polish_test2.gif");
+    //****ADDED 6-22 @745
+    QImage* croppedImg = new QImage(*greyScaleImage);
+    QByteArray imageContent;
+    QBuffer buffer(&imageContent);
+    buffer.open(QIODevice::WriteOnly);
+    croppedImg->save(&buffer, "JPG");
 
-    if(!file->open(QIODevice::ReadOnly)){
-        qDebug() << "# Could not upload/open file";
-    }
+    qDebug() << "byte array size is " << imageContent.size();
 
-    QByteArray fileContent(file->readAll());
-    imagePart.setBody(fileContent);
+    imagePart.setBody(imageContent);
+    //****end ADDED
 
     multipart->append(imagePart);
     multipart->append(part_parameter("apikey","3653fc62e388957"));
@@ -226,10 +262,12 @@ void MainWindow::recognize(){
     reply = manager->post(api_request, multipart);
 
     QObject::connect(reply, SIGNAL(finished()), this, SLOT(networkData()));
-    qDebug() << file->size() << "bytes";
 
-    imagePart.setBodyDevice(file);
-    file->setParent(multipart);
+    //qDebug() << "file size is" << file->size() << "bytes";
+
+    //imagePart.setBodyDevice(imageContent);
+    //file->setParent(multipart);
+
     networkData();
 }
 

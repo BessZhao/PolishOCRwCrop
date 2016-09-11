@@ -39,7 +39,8 @@
 #include <QDir>
 #include <QVariantMap>
 #include <QByteArray>
-
+#include <QMessageBox>
+#include <QScrollArea>
 
 namespace Ui {
 class MainWindow;
@@ -53,7 +54,6 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     QImage* greyScale(QImage* origin);
-    void parseApiResponse();
    // quint64 dir_size(const QString & str);
 
 public slots:
@@ -68,14 +68,19 @@ private:
     QString fileName;
     QString saveLocation;
     QString text;
-    QLabel * gifImage = new QLabel;
+    QLabel* gifImage = new QLabel;
     QImage* originalImage = new QImage;//original image
     QImage* greyScaleImage = new QImage;//greyscaled image
-    QLabel* displayImage = new QLabel;
+    QLabel* displayImage;
+    QLabel* displayText;
     QNetworkReply* reply;
-    QLabel* displayText = new QLabel;
     QNetworkAccessManager* manager;
     PromptDialog askForCrop;
+
+    //****ADDED 6-22
+    QScrollArea* textScrollArea;
+    QScrollArea* imageScrollArea;
+
 };
 
 #endif // MAINWINDOW_H

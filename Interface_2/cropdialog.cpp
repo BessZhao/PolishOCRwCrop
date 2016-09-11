@@ -35,10 +35,10 @@ void CropDialog::getImage(QImage *myImage)
 void  CropDialog::mousePressEvent(QMouseEvent* event){
     //Mouse is pressed for the first time
     mousePressed = true;
-    x = imageLabel->geometry().topLeft().x(); //std::cout<<"x: "<<x<<std::endl;
-    y = imageLabel->geometry().topLeft().y(); //std::cout<<"y: "<<y<<std::endl;
+    x = imageLabel->geometry().topLeft().x(); std::cout<<"x: "<<x<<std::endl;
+    y = imageLabel->geometry().topLeft().y(); std::cout<<"y: "<<y<<std::endl;
     //set the initial line points, both are same
-    myRect.setTopLeft(QPoint(event->x()-x,event->y()-y)); //std::cout<<"pos: "<<event->x()<<","<<event->y()<<std::endl;
+    myRect.setTopLeft(QPoint(event->x()-x,event->y()-y)); std::cout<<"pos: "<<event->x()<<","<<event->y()<<std::endl;
     myRect.setBottomRight(QPoint(event->x()-x,event->y()-y));
 
 }
@@ -72,7 +72,17 @@ void  CropDialog::mouseReleaseEvent(QMouseEvent *event){
 
     //repaint();
     //imageLabel->setPixmap(QPixmap::fromImage(*wholeImage));
-    this->close();
+
+    QToolBar* toolbar = new QToolBar;
+    QLabel* save = new QLabel;
+    QImage* saveicon = new QImage;
+    saveicon->load(":/Image/export.png");
+    save->setPixmap(QPixmap::fromImage(*saveicon));
+    toolbar->addWidget(save);
+    toolbar->setFloatable(true);
+    toolbar->setGeometry(10,10,10,10);
+
+    //this->close();
 }
 
 void  CropDialog::paintEvent(QPaintEvent *event){
